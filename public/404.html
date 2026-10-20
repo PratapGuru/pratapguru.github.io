@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page not found — Pratap Sikdar</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <style>
+      :root { color-scheme: dark; --ink:#0e1b20; --line:#24404a; --paper:#f6ecd6; --muted:#c7c0ad; --blue:#f4b740; --blue-ink:#1d1404; }
+      @media (prefers-color-scheme: light) {
+        :root { color-scheme: light; --ink:#fbf5e8; --line:#e4d7bb; --paper:#13242a; --muted:#3d4f54; --blue:#a96c00; --blue-ink:#fffaf0; }
+      }
+      * { box-sizing: border-box; }
+      body { margin:0; min-height:100svh; display:grid; place-items:center; padding:1rem; background:var(--ink); color:var(--paper);
+             font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; line-height:1.6; }
+      main { max-width: 32rem; }
+      svg { width:64px; height:64px; margin-bottom:1.5rem; }
+      h1 { margin:0 0 .5rem; font-size: clamp(1.8rem, 1.2rem + 2.5vw, 2.6rem); letter-spacing:-.02em; line-height:1.1; }
+      p { margin:0 0 1.75rem; color:var(--muted); }
+      .row { display:flex; flex-wrap:wrap; gap:.6rem; }
+      a { display:inline-flex; align-items:center; min-height:44px; padding:.6rem 1.15rem; border-radius:999px; border:1px solid var(--line);
+          color:var(--paper); text-decoration:none; font-weight:550; font-size:.95rem; }
+      a.primary { background:var(--blue); border-color:var(--blue); color:var(--blue-ink); }
+      a:focus-visible { outline:2px solid var(--blue); outline-offset:3px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="15" fill="#13242a"/>
+        <g fill="#f4b740">
+          <rect x="14.5" y="20" width="8" height="18" rx="1.6"/><rect x="17.75" y="14" width="1.5" height="28" rx=".75"/>
+          <rect x="28" y="28" width="8" height="12" rx="1.6"/><rect x="31.25" y="24" width="1.5" height="20" rx=".75"/>
+          <rect x="41.5" y="36" width="8" height="12" rx="1.6"/><rect x="44.75" y="31" width="1.5" height="22" rx=".75"/>
+        </g>
+      </svg>
+      <h1>This page doesn’t exist.</h1>
+      <p>The link may be out of date or mistyped. Everything on this site lives on the home page.</p>
+      <div class="row">
+        <a class="primary" href="/">Go to the home page</a>
+        <a href="/#projects">See projects</a>
+      </div>
+    </main>
+  </body>
+</html>
