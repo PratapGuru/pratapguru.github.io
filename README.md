@@ -17,7 +17,7 @@ A single-page site covering my background, my internship at Nuvama Wealth, perso
 - **Projects, newest first:** main projects in a pinned gallery that moves sideways as you scroll (a swipeable row on phones), and smaller projects in an archive list where a preview card follows the cursor. Category filters, status labels (Completed / Prototype / In development / Planned) and an accessible case-study view for every project.
 - **Skills:** grouped and filterable, each with an honest level (Applied / Studied / Exploring) and where it was used — no percentage bars.
 - **Light/dark theme** with a smooth transition, remembered between visits.
-- **Resume download** that checks the PDF exists first and shows a clear message instead of a broken link if it's missing.
+- **Resume window with two tabs** — the college (IIM Bodh Gaya) format, shown by default, and an ATS-friendly version — each with a page preview, download and open-in-new-tab. It checks each PDF exists first and shows a clear message instead of a broken link if one is missing.
 - **Accessibility:** keyboard navigation, skip link, visible focus, focus-trapped modals that close on Escape and return focus, inert background while a modal is open, screen-reader labels for icons and external links.
 - **Reduced motion:** all animations and smooth scrolling switch off when the visitor's OS asks for reduced motion.
 - **SEO and sharing:** title and description, Open Graph/Twitter card image, structured data, favicon, sitemap, robots.txt and a custom 404 page.
@@ -40,7 +40,7 @@ A single-page site covering my background, my internship at Nuvama Wealth, perso
 .
 ├── .github/workflows/deploy.yml   # Build + deploy to GitHub Pages
 ├── public/                        # Copied as-is into the build
-│   ├── resume/Pratap-Sikdar-Resume.pdf
+│   ├── resume/                    # College + ATS resume PDFs and their page-1 previews
 │   ├── images/projects/           # Real project screenshots
 │   ├── favicon.svg, favicon-32.png, apple-touch-icon.png
 │   ├── og-image.png               # Social-sharing preview (1200×630)
@@ -122,9 +122,16 @@ Optional sections (`planned`, `decisions`, `challenges`, `learnings`, `note`) ar
 
 ### Updating the resume
 
-Replace `public/resume/Pratap-Sikdar-Resume.pdf` with your new PDF (keep the same file name, or update `resume.path` in `profile.ts`). If the file is missing, the download buttons show "The resume PDF isn't uploaded yet" instead of a broken link.
+There are two versions, set in `resumes` in `src/data/profile.ts` (the first one is the default tab):
 
-> **Privacy note:** the resume PDF is publicly downloadable once the site is live. The current file includes your phone number — remove it from the PDF first if you don't want it public.
+| Tab | PDF | Preview image |
+| --- | --- | --- |
+| College format | `public/resume/Pratap-Sikdar-Resume-College.pdf` | `public/resume/preview-college.webp` |
+| ATS-friendly | `public/resume/Pratap-Sikdar-Resume-ATS.pdf` | `public/resume/preview-ats.webp` |
+
+To update one, replace its PDF with the same file name, and replace the preview with an image of page 1 (about 860 px wide; a screenshot saved as .webp, .png or .jpg works — update `preview` if you change the extension). If a PDF is missing, its tab says "This version isn't uploaded yet" instead of showing a broken link.
+
+> **Privacy note:** both resume PDFs (and their previews) are publicly visible once the site is live, and both include your phone number. Remove it from the PDFs and previews first if you don't want it public.
 
 ### Skills, experience, education
 
@@ -197,7 +204,7 @@ GitHub Pages hosting and HTTPS are free on the `github.io` address. A custom dom
 | Workflow fails with a permissions/environment error | Settings → Environments → `github-pages` → make sure `main` is an allowed deployment branch. |
 | Old version still showing | Wait a minute and hard-refresh (Ctrl+Shift+R); GitHub's CDN caches briefly. |
 | Social preview not updating on LinkedIn | Use LinkedIn's Post Inspector (https://www.linkedin.com/post-inspector/) to refresh the cached preview. |
-| Resume button says it isn't uploaded | Check the PDF is at `public/resume/Pratap-Sikdar-Resume.pdf` and the name matches `resume.path`. |
+| A resume tab says it isn't uploaded | Check the PDF is in `public/resume/` and its name matches `path` in `resumes` (`profile.ts`). |
 
 ## Licence
 

@@ -39,14 +39,45 @@ export const links = {
 };
 
 /**
- * Resume PDF. Put the file in /public/resume/ and keep this path in sync.
- * If the file is missing, the "Download resume" buttons show a clear
- * "not available yet" message instead of linking to a broken file.
+ * Resume versions, shown as tabs in the resume window. The first one is the
+ * default tab. Put each PDF (and its page-1 preview image) in /public/resume/
+ * and keep these paths in sync. If a PDF is missing, its tab says so instead
+ * of linking to a broken file.
  */
-export const resume = {
-  path: '/resume/Pratap-Sikdar-Resume.pdf',
-  downloadName: 'Pratap-Sikdar-Resume.pdf',
-};
+export interface ResumeVersion {
+  id: string;
+  /** Tab label. */
+  label: string;
+  /** One-line description shown under the tab. */
+  summary: string;
+  /** When to send this version. */
+  bestFor: string[];
+  path: string;
+  downloadName: string;
+  /** Image of page 1, shown as a preview. */
+  preview: string;
+}
+
+export const resumes: ResumeVersion[] = [
+  {
+    id: 'college',
+    label: 'College format',
+    summary: 'The IIM Bodh Gaya placement format: one page, roles and responsibilities in a table, with academic scores.',
+    bestFor: ['Campus placements', 'Recruiters who ask for the institute format'],
+    path: '/resume/Pratap-Sikdar-Resume-College.pdf',
+    downloadName: 'Pratap-Sikdar-Resume-College.pdf',
+    preview: '/resume/preview-college.webp',
+  },
+  {
+    id: 'ats',
+    label: 'ATS-friendly',
+    summary: 'A single-column version with plain headings and a standard section order, so applicant tracking systems can read it.',
+    bestFor: ['Job portals and online applications', 'Off-campus roles'],
+    path: '/resume/Pratap-Sikdar-Resume-ATS.pdf',
+    downloadName: 'Pratap-Sikdar-Resume-ATS.pdf',
+    preview: '/resume/preview-ats.webp',
+  },
+];
 
 /** Public URL of the deployed site (used in docs and metadata). */
 export const siteUrl = 'https://pratapguru.github.io/';

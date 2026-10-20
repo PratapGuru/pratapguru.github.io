@@ -134,7 +134,7 @@ export function Hero() {
           <a className="btn hero__act-extra" href="#projects">
             View my work
           </a>
-          <ResumeButton />
+          <ResumeButton label="Resume" />
           <Magnetic strength={0.2}>
             <a className="btn btn--quiet hero__act-extra" href="#contact">
               <Mail aria-hidden="true" />
